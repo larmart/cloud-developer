@@ -16,7 +16,7 @@ router.get('/', async (req: Request, res: Response) => {
     res.send(items);
 });
 
-//@TODO
+//Exercise: Lesson4: "Connecting our RDS Database in Node"
 //Add an endpoint to GET a specific resource by Primary Key
 router.get('/:id', async (req: Request, res: Response) => {
     let { id } = req.params;
@@ -36,12 +36,41 @@ router.get('/:id', async (req: Request, res: Response) => {
     res.send(items);
 });
 
+//Exercise: Lesson4: "Connecting our RDS Database in Node
 // update a specific resource
 router.patch('/:id', 
     requireAuth, 
     async (req: Request, res: Response) => {
-        //@TODO try it yourself
-        res.send(500).send("not implemented")
+        let { id } = req.params;
+
+        // check to make sure the id is set
+        if (!id) { 
+            // respond with an error if not
+            return res.status(400).send(`id is required`);
+        }
+
+         // destruct our body payload for our variables
+        let { caption, url } = req.body;
+
+        // check to make sure all required variables are set
+        if (!caption && !url) {
+            // respond with an error if not
+            return res.status(404).send(`body is empty`);
+        }
+
+        //try it yourself
+        const feed = await FeedItem.findByPk(id);
+
+        // Check if record exists in db
+        if (feed) {
+            feed.update({
+                caption: caption,
+                url: url
+            });
+        }
+
+
+        res.send(200).send(feed.toJSON());
 });
 
 
