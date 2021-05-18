@@ -8,6 +8,13 @@ import bodyParser from 'body-parser';
 import { V0MODELS } from './controllers/v0/model.index';
 
 (async () => {
+  try {
+    await sequelize.authenticate();
+    console.log('Connection has been established successfully.');
+  } catch (error) {
+    console.error('Unable to connect to the database:', error);
+  }
+
   await sequelize.addModels(V0MODELS);
   await sequelize.sync();
 
