@@ -1,5 +1,6 @@
 {
   "name": "udacity-c2-restapi",
+  "engines": {"node": "14.16.0"},
   "version": "1.0.0",
   "description": "",
   "main": "src/server.js",
