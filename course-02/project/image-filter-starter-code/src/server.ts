@@ -30,7 +30,7 @@ import {filterImageFromURL, deleteLocalFiles} from './util/util';
     }
 
     //  2. call filterImageFromURL(image_url) to filter the image
-    filterImageFromURL(image_url).catch().then( (filteredImagePath) => 
+    filterImageFromURL(image_url).then( (filteredImagePath) => 
       {
         //  3. send the resulting file in the response
         return res.status(200).sendFile(filteredImagePath, () => {
