@@ -121,6 +121,8 @@ functions:
       STAGE: ${self:provider.stage}
       API_ID:
         Ref: WebsocketsApi
+      REGION:
+        Ref: AWS::Region
     handler: src/lambda/s3/sendNotifications.handler
     events:
       - sns:
