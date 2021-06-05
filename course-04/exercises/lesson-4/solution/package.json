@@ -7,9 +7,10 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
+    "core-js": "^2.6.12",
     "elasticsearch": "^15.5.0",
     "http-aws-es": "^6.0.0",
-    "jimp": "^0.6.4",
+    "jimp": "^0.16.1",
     "source-map-support": "^0.5.11",
     "uuid": "^3.3.2"
   },
