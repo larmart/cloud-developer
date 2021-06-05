@@ -107,10 +107,10 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n\t\"title\": \"New image\"\n}"
+									"raw": "{\n\t\"title\": \"Sky\"\n}"
 								},
 								"url": {
-									"raw": "https://{{apiId}}.execute-api.{{region}}.amazonaws.com/dev/groups/1/images",
+									"raw": "https://{{apiId}}.execute-api.{{region}}.amazonaws.com/dev/groups/:groupid/images",
 									"protocol": "https",
 									"host": [
 										"{{apiId}}",
@@ -122,8 +122,72 @@
 									"path": [
 										"dev",
 										"groups",
-										"1",
+										":groupid",
 										"images"
+									],
+									"variable": [
+										{
+											"key": "groupid",
+											"value": "a5315e06-8dbf-4769-bc4f-5297d744953b"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "PUT Image to signedURL",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "file",
+									"file": {
+										"src": "/C:/Users/larsm/OneDrive/Pictures/Screenshots/unreal_01.png"
+									}
+								},
+								"url": {
+									"raw": "https://serverless-udagram-images-026401354320-dev.s3.eu-central-1.amazonaws.com/e110959e-98b8-4a1c-9d57-d9a19f9a99f3?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIAQMJNEWJIORHL56PK%2F20210605%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Date=20210605T145612Z&X-Amz-Expires=300&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEHcaDGV1LWNlbnRyYWwtMSJHMEUCIQDmZo0hJ0I3%2Fu1ETQVlbvmgeGtreMuTQQ13X%2BdEfYp6EQIgCdl1M%2B1pdM7OGa4UamQoh%2Bdw1XClOdBAPXSuzM%2F5qUIqqwIIMBAAGgwwMjY0MDEzNTQzMjAiDLFlhnmuditzVENBTiqIAiixcyOhKwpH5IFJ0UKQGw1ZdoaeovIYHrhUnttRIbzMBVd4kcZsTsHyXUsTeoyVJYLNivOg1NF5BVPsaWn6l8ULYTNltLpKMXfMh796H%2B%2FBmTEz3nBJrywtlICQBTgt%2F9TBIP8C%2BE0vbIXNOvFkAb0RgYOUJtddrMMATzXOwbMAW%2FtFprSC6u1X6LkN0c04kjJx%2FTlqYMRMssnqjF3vPb91fZmkeOISkw02RxYWsXqh1yBQgfWUkIMGJCudhZKPpwxynq1FyatD2WNxwfaxCfS48LF%2FvsDoTPgCLNLmYCS25EduxGvZTq7ukiYbsBW2Ak3FKaTszg7RM6Zu%2BEUf6dU62OLbeMcR2zCLoe6FBjqaAeZUpJ3pzdx1I%2BYMKWCsjAvEDNpGJnSuu6MRb4GsAi%2BmBrLm%2BZjR%2FCguS1gQU0JM8zovEtF1jd6KbihnkKUn1eIT4vFh1p3WUIVkUnrCnLCZ%2FIQ%2BiUeOgIUy1EzT8tfcGV5KWZIUw8gZaAN3COcGXAyR%2FrCK0CoCebNLqNMT%2B3TIdp%2Br2Q11jKFvOFLxSy6MnMI3AppepB%2B%2Ftuk%3D&X-Amz-Signature=5bc8352fde264ee401c1a8f5c28f9aaa1dbb913e8e4d316fc43bb27a9e38a104&X-Amz-SignedHeaders=host",
+									"protocol": "https",
+									"host": [
+										"serverless-udagram-images-026401354320-dev",
+										"s3",
+										"eu-central-1",
+										"amazonaws",
+										"com"
+									],
+									"path": [
+										"e110959e-98b8-4a1c-9d57-d9a19f9a99f3"
+									],
+									"query": [
+										{
+											"key": "X-Amz-Algorithm",
+											"value": "AWS4-HMAC-SHA256"
+										},
+										{
+											"key": "X-Amz-Credential",
+											"value": "ASIAQMJNEWJIORHL56PK%2F20210605%2Feu-central-1%2Fs3%2Faws4_request"
+										},
+										{
+											"key": "X-Amz-Date",
+											"value": "20210605T145612Z"
+										},
+										{
+											"key": "X-Amz-Expires",
+											"value": "300"
+										},
+										{
+											"key": "X-Amz-Security-Token",
+											"value": "IQoJb3JpZ2luX2VjEHcaDGV1LWNlbnRyYWwtMSJHMEUCIQDmZo0hJ0I3%2Fu1ETQVlbvmgeGtreMuTQQ13X%2BdEfYp6EQIgCdl1M%2B1pdM7OGa4UamQoh%2Bdw1XClOdBAPXSuzM%2F5qUIqqwIIMBAAGgwwMjY0MDEzNTQzMjAiDLFlhnmuditzVENBTiqIAiixcyOhKwpH5IFJ0UKQGw1ZdoaeovIYHrhUnttRIbzMBVd4kcZsTsHyXUsTeoyVJYLNivOg1NF5BVPsaWn6l8ULYTNltLpKMXfMh796H%2B%2FBmTEz3nBJrywtlICQBTgt%2F9TBIP8C%2BE0vbIXNOvFkAb0RgYOUJtddrMMATzXOwbMAW%2FtFprSC6u1X6LkN0c04kjJx%2FTlqYMRMssnqjF3vPb91fZmkeOISkw02RxYWsXqh1yBQgfWUkIMGJCudhZKPpwxynq1FyatD2WNxwfaxCfS48LF%2FvsDoTPgCLNLmYCS25EduxGvZTq7ukiYbsBW2Ak3FKaTszg7RM6Zu%2BEUf6dU62OLbeMcR2zCLoe6FBjqaAeZUpJ3pzdx1I%2BYMKWCsjAvEDNpGJnSuu6MRb4GsAi%2BmBrLm%2BZjR%2FCguS1gQU0JM8zovEtF1jd6KbihnkKUn1eIT4vFh1p3WUIVkUnrCnLCZ%2FIQ%2BiUeOgIUy1EzT8tfcGV5KWZIUw8gZaAN3COcGXAyR%2FrCK0CoCebNLqNMT%2B3TIdp%2Br2Q11jKFvOFLxSy6MnMI3AppepB%2B%2Ftuk%3D"
+										},
+										{
+											"key": "X-Amz-Signature",
+											"value": "5bc8352fde264ee401c1a8f5c28f9aaa1dbb913e8e4d316fc43bb27a9e38a104"
+										},
+										{
+											"key": "X-Amz-SignedHeaders",
+											"value": "host"
+										}
 									]
 								}
 							},
@@ -154,7 +218,7 @@
 									"raw": ""
 								},
 								"url": {
-									"raw": "https://{{apiId}}.execute-api.{{region}}.amazonaws.com/dev/groups/1/images",
+									"raw": "https://{{apiId}}.execute-api.{{region}}.amazonaws.com/dev/groups/:groupId/images",
 									"protocol": "https",
 									"host": [
 										"{{apiId}}",
@@ -166,52 +230,35 @@
 									"path": [
 										"dev",
 										"groups",
-										"1",
+										":groupId",
 										"images"
+									],
+									"variable": [
+										{
+											"key": "groupId",
+											"value": "a5315e06-8dbf-4769-bc4f-5297d744953b"
+										}
 									]
 								}
 							},
 							"response": []
 						},
 						{
-							"name": "Get image by id",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
+							"name": "Get Image",
 							"request": {
 								"method": "GET",
-								"header": [
-									{
-										"key": "Content-Type",
-										"name": "Content-Type",
-										"type": "text",
-										"value": "application/json"
-									},
-									{
-										"key": "Authorization",
-										"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJnaXZlbl9uYW1lIjoiSXZhbiIsImZhbWlseV9uYW1lIjoiTXVzaGtldHlrIiwibmlja25hbWUiOiJpdmFuLm11c2hrZXRpayIsIm5hbWUiOiJJdmFuIE11c2hrZXR5ayIsInBpY3R1cmUiOiJodHRwczovL2xoNS5nb29nbGV1c2VyY29udGVudC5jb20vLTlFMzN4NG95YnZnL0FBQUFBQUFBQUFJL0FBQUFBQUFBR2JjL090SEFIWDlHbFBnL3Bob3RvLmpwZyIsImxvY2FsZSI6ImVuLUdCIiwidXBkYXRlZF9hdCI6IjIwMTktMDQtMDhUMjA6MTA6MDkuNjU2WiIsImVtYWlsIjoiaXZhbi5tdXNoa2V0aWtAZ21haWwuY29tIiwiZW1haWxfdmVyaWZpZWQiOnRydWUsImlzcyI6Imh0dHBzOi8vdGVzdC1lbmRwb2ludC5hdXRoMC5jb20vIiwic3ViIjoiZ29vZ2xlLW9hdXRoMnwxMTEwMzM3OTg1NDUwMTAxMjU4NTUiLCJhdWQiOiJHcTEzTTlzTnZtaTFJWFFLa1cya2N3TndVN2l1T05lTCIsImlhdCI6MTU1NDc1NDIwOSwiZXhwIjoxNTU0NzkwMjA5LCJhdF9oYXNoIjoidUFjYkk0c0NSZ2xVb1lwYVdaYW5JQSIsIm5vbmNlIjoiYU1NNGE1WkMySWowflNxSlRiRzBhZUYzLmpNenh4OVkifQ.QgVnp19MxrNqLjNy0tF5UhARFDqIvUyI0ZintM10Row",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": ""
-								},
+								"header": [],
 								"url": {
-									"raw": "https://{{apiId}}.execute-api.{{region}}.amazonaws.com/dev/groups/1/images",
+									"raw": "https://serverless-udagram-images-026401354320-dev.s3.amazonaws.com/e110959e-98b8-4a1c-9d57-d9a19f9a99f3",
 									"protocol": "https",
 									"host": [
-										"{{apiId}}",
-										"execute-api",
-										"{{region}}",
+										"serverless-udagram-images-026401354320-dev",
+										"s3",
 										"amazonaws",
 										"com"
 									],
 									"path": [
-										"dev",
-										"groups",
-										"1",
-										"images"
+										"e110959e-98b8-4a1c-9d57-d9a19f9a99f3"
 									]
 								}
 							},
@@ -345,10 +392,13 @@
 						{
 							"name": "Get a group",
 							"request": {
+								"auth": {
+									"type": "noauth"
+								},
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "https://{{apiId}}.execute-api.{{region}}.amazonaws.com/dev/groups/1",
+									"raw": "https://{{apiId}}.execute-api.{{region}}.amazonaws.com/dev/groups/:groupid",
 									"protocol": "https",
 									"host": [
 										"{{apiId}}",
@@ -360,7 +410,13 @@
 									"path": [
 										"dev",
 										"groups",
-										"1"
+										":groupid"
+									],
+									"variable": [
+										{
+											"key": "groupid",
+											"value": "a5315e06-8dbf-4769-bc4f-5297d744953b"
+										}
 									]
 								}
 							},
