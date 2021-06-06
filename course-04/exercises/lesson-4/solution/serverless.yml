@@ -319,13 +319,19 @@ resources:
         AccessPolicies:
           Version: '2012-10-17'
           Statement:
+            - 
+              Effect: Allow
+              Principal:
+                AWS: !Sub arn:aws:sts::${AWS::AccountId}:assumed-role/${self:service}-${self:provider.stage}-${self:provider.region}-lambdaRole/serverless-udagram-app-${self:provider.stage}-SyncWithElasticsearch
+              Action: es:ESHttp*
+              Resource: !Sub arn:aws:es:${self:provider.region}:${AWS::AccountId}:domain/images-search-${self:provider.stage}/*
             -
               Effect: Allow
               Principal:
                 AWS: '*'
               Action: 'es:ESHttp*'
-              Resource: "*"
               Condition:
                 IpAddress:
                  aws:SourceIp:
-                  - "85.212.131.147/32"
+                  - "85.212.145.202/32"
+              Resource: !Sub arn:aws:es:${self:provider.region}:${AWS::AccountId}:domain/images-search-${self:provider.stage}/*
